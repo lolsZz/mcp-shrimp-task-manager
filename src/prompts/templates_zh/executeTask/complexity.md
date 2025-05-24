@@ -1,15 +1,15 @@
-## 任務複雜度評估
+## Task Complexity Assessment
 
-- **複雜度級別:** {level}
+- **Complexity Level:** {level}
 
 {complexityStyle}
 
-### 評估指標
+### Assessment Metrics
 
-- 描述長度: {descriptionLength} 字符
+- Description Length: {descriptionLength} characters
 
-- 依賴任務數: {dependenciesCount} 個
+- Number of Dependencies: {dependenciesCount}
 
-### 處理建議
+### Processing Recommendations
 
 {recommendation}

@@ -1,15 +1,15 @@
-# 任務查詢結果
+# Task Query Results
 
-## 無符合結果
+## No Matching Results
 
-沒有找到符合 "{query}" 的任務。
+No tasks matching "{query}" were found.
 
-### 可能的原因:
+### Possible Reasons:
 
-- 您提供的任務 ID 不存在或格式不正確
-- 任務可能已被刪除
-- 關鍵字拼寫可能有誤
-- 請嘗試使用更簡短或相近的關鍵詞
-- 任務清單可能為空
+- The task ID you provided does not exist or is incorrectly formatted
+- The task may have been deleted
+- The keyword spelling may be incorrect
+- Try using shorter or similar keywords
+- The task list may be empty
 
-您可以使用 `list_tasks` 命令查看所有現有任務或使用其他關鍵字搜尋歷史紀錄。
+You can use the `list_tasks` command to view all existing tasks or use other keywords to search the history.

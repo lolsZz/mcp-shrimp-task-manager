@@ -1,5 +1,5 @@
-# 任務刪除結果
+# Task Deletion Result
 
-## 操作被拒絕
+## Operation Denied
 
-任務 "{taskName}" (ID: `{taskId}`) 已完成，不允許刪除已完成的任務。
+Task "{taskName}" (ID: `{taskId}`) has been completed. Deleting completed tasks is not allowed.

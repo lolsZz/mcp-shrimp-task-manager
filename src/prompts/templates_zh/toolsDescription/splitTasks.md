@@ -1,57 +1,83 @@
-將複雜任務分解為獨立子任務，建立依賴關係和優先順序。
+Break down complex tasks into independent subtasks, establishing dependencies and priorities.
 
-1. **拆分粒度控制（必讀）**
+## 1. **Granularity Control (Required Reading)**
 
-   - **最小可交付單元（Minimum Viable Task）**  
-     每個子任務應能在 **1–2 個工作天**（約 8–16 小時）內，由一名開發者完成並驗收。
-   - **最大複雜度限制**  
-     單個子任務不應同時跨越「前端」「後端」「資料庫」等多個技術領域；若需跨域，請拆成多個子任務。
-   - **任務數量建議**  
-     一次拆分不超過 **10 項子任務**；若超過，依優先順序分批（每批 6–8 項）提交。
-   - **任務長度建議**
-     一次拆分的參數不超過 5000 字，如果超過請分批提交。
-   - **深度層級限制**  
-     任務樹深度不宜超過 **3 層**（第 1 層：功能模組；第 2 層：主要流程；第 3 層：關鍵步驟）。
+- ### **Minimum Viable Task**
 
-2. **拆分步驟示例**
+  Each subtask should be completable and verifiable by a single developer within **1–2 working days** (approximately 8–16 hours).
 
-   - 識別「核心功能點」，為每個功能點創建子任務
-   - 在每個子任務下標註「輸入／輸出」與「驗收標準」
-   - 如果需要請提供「pseudocode」，僅提供高級邏輯流程和關鍵步驟避免完整代碼
-   - 檢查子任務間「前後依賴」，並在 `dependencies` 欄位標明
-   - 若任務涉及介面設計，請務必提供完整且一致的定義，包括：
+- ### **Maximum Complexity Limitation**
 
-     - function / class / schema 定義（含名稱、參數、回傳值）
-     - 各項目之資料型別、用途描述、是否為選填
-     - 錯誤處理方式與預期異常情境
-     - 依賴關係與命名規範（如有）
-     - 範例資料與使用方式
+  A single subtask should not span multiple technical domains such as **frontend**, **backend**, and **database**.  
+  If cross-domain work is required, split it into multiple subtasks.
 
-     這將有助於任務之間的連貫性、可讀性與開發精確性。
+- ### **Recommended Number of Tasks**
 
-3. **依賴與優先順序**
+  Avoid splitting into more than **10 subtasks** at once.  
+  If more are needed, submit them in prioritized batches (6–8 tasks per batch).
 
-   - 標註每個子任務的 `dependencies`（依賴清單）
-   - 根據依賴圖自動計算並執行優先順序，確保關鍵路徑優先
+- ### **Recommended Task Length**
 
-4. **更新模式說明 (`updateMode`)**
+  Each split should not exceed **5,000 characters**.  
+  If it does, divide and submit in multiple batches.
 
-   當你需要建立一個全新的任務並且與目前的任務列表無關時，請務必使用`clearAllTasks`避免任務混肴
+- ### **Depth Limitation**
+  The task tree should not exceed **3 levels**:
+  - **Level 1**: Functional Modules
+  - **Level 2**: Main Processes
+  - **Level 3**: Key Steps
 
-   - `append`：保留現有未完成任務並添加新任務
-   - `overwrite`：刪除所有未完成任務，保留已完成狀態的任務
-   - `selective`：根據任務名稱智能匹配並更新相應任務
-   - `clearAllTasks`：清除所有任務並自動備份現有列表
+## 2. **Task Splitting Example**
 
-5. **JSON 嚴謹規則**
+- Identify **core functionality points**, and create a subtask for each.
+- Annotate each subtask with:
+  - **Input/Output**
+  - **Acceptance Criteria**
+- If needed, provide **pseudocode**:
+  - Only outline high-level logic and key steps.
+  - Avoid providing complete source code.
+- Check **dependencies** between subtasks and specify them in the `dependencies` field.
+- If the task involves interface design, always provide a complete and consistent definition, including:
 
-   - **禁止註解**：JSON 本身不支援註解，任何 `#` 或 `//` 都會導致解析失敗
-   - **注意轉義**：所有特殊字元（如雙引號 `\"`、反斜線 `\\`）必須正確轉義，否則視為非法字元
+  - Function/class/schema definitions (including names, parameters, return values)
+  - Data types, usage descriptions, and optional/required status for each item
+  - Error handling methods and expected exception scenarios
+  - Dependency and naming conventions (if any)
+  - Sample data and usage examples
 
-6. **重要訊息**
+  This ensures consistency, readability, and development precision between tasks.
 
-這些任務將會分配給**低智能模型**執行，所以你必須參考以下幾點
+## 3. **Dependencies and Prioritization**
 
-- `明確且清楚的指導`：這將避免**低智能模型**設計出錯誤或架構風格不一致的程式碼，所以請給予明確的指令或規範
-- `封裝接口`：每個任務都會是獨立執行，所以需要定義好接口，例如你會暴露出什麼 function name 有什麼參數，會回傳什麼等等的資訊，方便其他任務執行模型可以快速的知道如何使用或穿接相關功能
-- `依賴性`：如果任務與任務之間有依賴性，那應該是先定義好交互的介面，任務之間不需要知道各自的實作，但需要知道如何與對方交互
+- Mark each subtask with its `dependencies` list.
+- Automatically compute and enforce execution order based on the dependency graph to prioritize the **critical path**.
+
+## 4. **Update Mode Explanation (`updateMode`)**
+
+When you need to create a new task that is not related to the current task list, be sure to use `clearAllTasks` to avoid task confusion.
+
+- `append`: Keep existing unfinished tasks and add new ones.
+- `overwrite`: Delete all unfinished tasks, keep completed ones.
+- `selective`: Smart-match and update tasks by name.
+- `clearAllTasks`: Clear all tasks and automatically back up the current list.
+
+---
+
+## 5. **Strict JSON Rules**
+
+- ### **No Comments Allowed**
+
+  JSON does not support comments.  
+  Any use of `#` or `//` will cause parsing failures.
+
+- ### **Proper Escaping Required**
+  All special characters (e.g., double quotes `\"`, backslashes `\\`) must be properly escaped,  
+  or they will be considered invalid.
+
+## 6. **Important Notes**
+
+These tasks will be executed by low-intelligence models, so please follow the guidelines below:
+
+- `Clear and Explicit Instructions`: This prevents the model from producing incorrect or inconsistent architecture/code styles. Provide clear commands or specifications.
+- `Encapsulated Interfaces`: Each task runs independently. Define the interfaces clearly — such as function names, parameters, return values — so that other task-executing models can easily understand how to interact with or integrate these functions.
+- `Dependencies`: If there are dependencies between tasks, define the interaction interfaces first. Tasks do not need to know each other's implementation, but must know how to interact with one another.

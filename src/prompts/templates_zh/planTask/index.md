@@ -1,95 +1,95 @@
-## 任務分析
+## Task Analysis
 
-你必須依序完成以下子步驟，並在最後呼叫 `analyze_task` 工具，將初步設計方案傳遞給下一階段。
+You must complete the following sub-steps in sequence, and at the end call the `analyze_task` tool to pass the preliminary design solution to the next stage.
 
-1. **分析目的**
+1. **Analysis Purpose**
 
-   - 讀取並理解：
+   - Read and understand:
      ```
-     任務說明：{description}
-     任務要求與限制：{requirements}
+     Task Description: {description}
+     Task Requirements and Constraints: {requirements}
      {tasksTemplate}
      ```
-   - 確認：
-     - 任務目標與預期成果
-     - 技術挑戰與關鍵決策點
-     - 與現有系統／架構的整合需求
+   - Confirm:
+     - Task objectives and expected outcomes
+     - Technical challenges and key decision points
+     - Integration requirements with existing systems/architecture
 
-2. **識別專案架構**
+2. **Identify Project Architecture**
 
-   - 查看關鍵配置文件與結構：
-     - 檢視根目錄結構和重要配置文件（package.json, tsconfig.json 等）
-     - 如果 shrimp-rules.md 存在請詳細閱讀並參考
-     - 分析主要的目錄組織和模組劃分
-   - 辨識架構模式：
-     - 識別核心設計模式和架構風格（MVC, MVVM, 微服務等）
-     - 確定專案的分層結構和模組邊界
-   - 分析核心組件：
-     - 研究主要類別/接口設計與依賴關係
-     - 標記關鍵服務/工具類及其職責和用途
-   - 記錄既有模式：
-     - 記錄發現的代碼組織方式和架構規律
-     - 建立對專案技術棧和架構特性的深入理解
+   - View key configuration files and structures:
+     - Examine root directory structure and important configuration files (package.json, tsconfig.json, etc.)
+     - If shrimp-rules.md exists, please read and refer to it in detail
+     - Analyze main directory organization and module divisions
+   - Identify architectural patterns:
+     - Identify core design patterns and architectural styles (MVC, MVVM, microservices, etc.)
+     - Determine the project's layered structure and module boundaries
+   - Analyze core components:
+     - Research main class/interface designs and dependencies
+     - Mark key services/utility classes and their responsibilities and uses
+   - Document existing patterns:
+     - Document discovered code organization methods and architectural regularities
+     - Establish deep understanding of the project's technology stack and architectural characteristics
 
-3. **收集資訊**  
-   如有任何不確定或信心不足，**必做其一**：
+3. **Collect Information**  
+   If there is any uncertainty or lack of confidence, **must do one of the following**:
 
-   - 向用戶提問以釐清
-   - 使用 `query_task`、`read_file`、`codebase_search`或其他類似的工具查詢現有程式／架構
-   - 使用 `web_search` 或其他網路搜尋工具查詢不熟悉的概念或技術  
-     禁止憑空臆測，所有資訊必可追溯來源。
+   - Ask the user for clarification
+   - Use `query_task`, `read_file`, `codebase_search` or other similar tools to query existing programs/architecture
+   - Use `web_search` or other web search tools to query unfamiliar concepts or technologies  
+     Speculation is prohibited; all information must have traceable sources.
 
-4. **檢查現有程式與結構**
+4. **Check Existing Programs and Structures**
 
-   - 使用精確的搜索策略：
-     - 利用 `read_file`、`codebase_search`或其他類似的工具查詢與任務相關的現有實現方式
-     - 尋找與當前任務功能類似的現有代碼
-     - 分析目錄結構尋找相似功能模組
-   - 分析代碼風格與約定：
-     - 檢查現有組件的命名規則（駝峰式、蛇形等）
-     - 確認註釋風格和格式約定
-     - 分析錯誤處理模式和日誌記錄方式
-   - 記錄並遵循發現的模式：
-     - 詳細記錄代碼模式和組織結構
-     - 計劃如何沿用這些模式進行設計
-   - 判斷是否與現有功能重疊，並決定「重用」或「抽象重構」
-   - **不得**先生成設計再查現有碼；必須「先查再設」
+   - Use precise search strategies:
+     - Use `read_file`, `codebase_search` or other similar tools to query existing implementation methods related to the task
+     - Look for existing code with functionality similar to the current task
+     - Analyze directory structure to find similar functional modules
+   - Analyze code style and conventions:
+     - Check naming conventions of existing components (camelCase, snake_case, etc.)
+     - Confirm comment styles and format conventions
+     - Analyze error handling patterns and logging methods
+   - Record and follow discovered patterns:
+     - Document code patterns and organizational structures in detail
+     - Plan how to extend these patterns in the design
+   - Determine if there is overlap with existing functionality, and decide whether to "reuse" or "abstract and refactor"
+   - **Do not** generate designs before checking existing code; must "check first, then design"
 
-5. **任務類型特定指南**
+5. **Task Type-Specific Guidelines**
 
-   根據任務特性，額外考慮以下特定指南：
+   Based on task characteristics, additionally consider the following specific guidelines:
 
-   - **前端/UI 任務**：
+   - **Frontend/UI Tasks**:
 
-     - 優先查看現有 UI 組件庫和設計系統
-     - 分析頁面佈局結構和元件組合模式
-     - 確認樣式管理方式（CSS 模組、Styled Components 等）
-     - 理解狀態管理和數據流模式
+     - Prioritize examining existing UI component libraries and design systems
+     - Analyze page layout structures and component composition patterns
+     - Confirm style management methods (CSS modules, Styled Components, etc.)
+     - Understand state management and data flow patterns
 
-   - **後端 API 任務**：
+   - **Backend API Tasks**:
 
-     - 檢查 API 路由結構和命名約定
-     - 分析請求處理和中間件模式
-     - 確認錯誤處理和響應格式標準
-     - 理解授權/身份驗證實現方式
+     - Check API route structures and naming conventions
+     - Analyze request handling and middleware patterns
+     - Confirm error handling and response format standards
+     - Understand authorization/authentication implementation methods
 
-   - **數據庫操作**：
-     - 分析現有的數據訪問模式和抽象層
-     - 確認查詢構建和事務處理方式
-     - 理解關聯關係處理和數據驗證方法
-     - 檢查緩存策略和效能優化手段
+   - **Database Operations**:
+     - Analyze existing data access patterns and abstraction layers
+     - Confirm query building and transaction processing methods
+     - Understand relationship handling and data validation methods
+     - Check caching strategies and performance optimization techniques
 
-6. **初步方案產出**
-   - 根據上述，撰寫「初步設計方案」：
-     - 清楚標示 **事實**（來源） vs **推論**（選擇依據）
-     - 禁止模糊語句，須為最終可交付成果
-     - 確保方案與專案既有架構模式一致
-     - 說明如何重用現有組件或遵循現有模式
-   - 過程必須一步一步思考並梳理思緒，如果問題過於複雜可以利用`process_thought`來思考
-   - **嚴重警告**：禁止一切`假設`與`猜測`與`幻想`，你必須透過一切你`可以使用的工具`來`收集資訊`
-   - 呼叫工具：
+6. **Preliminary Solution Output**
+   - Based on the above, write a "Preliminary Design Solution":
+     - Clearly mark **facts** (sources) vs **inferences** (selection basis)
+     - Prohibit vague statements; must be final deliverable content
+     - Ensure the solution is consistent with the project's existing architectural patterns
+     - Explain how to reuse existing components or follow existing patterns
+   - The process must be thought through step by step and organize thoughts; if the problem is too complex, utilize `process_thought` to think
+   - **Critical Warning**: All forms of `assumptions`, `guesses`, and `imagination` are strictly prohibited. You must use every `available tool` at your disposal to `gather real information`.
+   - Call tool:
      ```
-     analyze_task({ summary: <任務摘要>, initialConcept: <初步構想> })
+     analyze_task({ summary: <Task Summary>, initialConcept: <Initial Concept> })
      ```
 
-**現在開始呼叫 `analyze_task`，嚴禁不呼叫工具**
+**Now start calling `analyze_task`, strictly forbidden not to call the tool**

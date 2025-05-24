@@ -1,12 +1,12 @@
-## 任務完整詳情
+## Complete Task Details
 
 ### {name}
 
 **ID:** `{id}`
 
-**狀態:** {status}
+**Status:** {status}
 
-**描述:**{description}
+**Description:**{description}
 
 {notesTemplate}
 
@@ -18,8 +18,8 @@
 
 {relatedFilesTemplate}
 
-**創建時間:** {createdTime}
+**Creation Time:** {createdTime}
 
-**更新時間:** {updatedTime}
+**Update Time:** {updatedTime}
 
 {complatedSummaryTemplate}

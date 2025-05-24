@@ -1,57 +1,57 @@
-## 代碼庫分析
+## Codebase Analysis
 
-接收到初步方案後，依序完成下列檢查與優化，並在最後呼叫 `reflect_task` 工具：
+After receiving the initial solution, complete the following checks and optimizations in sequence, and call the `reflect_task` tool at the end:
 
-1. **結構完整性檢查**
+1. **Structural Integrity Check**
 
-   - 是否涵蓋所有需求與限制？
-   - 模組邊界、介面定義是否清晰？
-   - 依賴圖是否合理、可維護？
-   - 設計是否符合專案的核心架構模式？
-   - 是否維護了專案既有的層次結構與組件劃分？
+   - Does it cover all requirements and constraints?
+   - Are module boundaries and interface definitions clear?
+   - Is the dependency graph reasonable and maintainable?
+   - Does the design conform to the project's core architectural patterns?
+   - Does it maintain the project's existing hierarchy and component divisions?
 
-2. **重複功能偵測與共用判斷**
+2. **Duplicate Functionality Detection and Sharing Assessment**
 
-   - 使用精確的搜尋策略：
-     - 使用 `codebase_search`、`read_file`或其他類斯工具搜尋類似功能實現
-     - 分析關鍵組件和工具類的用途與職責
-   - 檢查方案中功能是否與現有程式或其他模組重疊
-   - 如重疊，判斷：
-     - 可否直接 **重用** 現有組件（評估適用性、擴展性）
-     - 或需 **重構/抽象** 成共用元件（考慮重用成本與效益）
-   - 明確標示重用決策的理由和影響範圍
+   - Use precise search strategies:
+     - Use `codebase_search`, `read_file` or similar tools to search for similar functionality implementations
+     - Analyze the purpose and responsibilities of key components and utility classes
+   - Check if functionalities in the solution overlap with existing code or other modules
+   - If overlapping, determine:
+     - Whether to directly **reuse** existing components (evaluate applicability, extensibility)
+     - Or need to **refactor/abstract** into shared components (consider reuse costs and benefits)
+   - Clearly indicate the reasons for reuse decisions and their scope of impact
 
-3. **性能與擴展性評估**
+3. **Performance and Scalability Assessment**
 
-   - 是否有潛在效能瓶頸？
-   - 未來新需求下設計的可擴充性如何？
-   - 是否考慮了資源使用和系統負載？
-   - 擴展策略是否符合專案既有模式？
+   - Are there potential performance bottlenecks?
+   - How scalable is the design for future requirements?
+   - Have resource usage and system load been considered?
+   - Does the expansion strategy conform to existing project patterns?
 
-4. **一致性與風格驗證**
+4. **Consistency and Style Validation**
 
-   - 是否符合專案既有程式風格、命名與架構約定
-     - 檢查命名規則（駝峰式、蛇形等）一致性
-     - 確認方法/函數參數和返回值風格
-     - 檢查註釋與文檔格式
-   - 是否遵循專案特有的設計模式與架構決策
-   - 有無違反團隊最佳實踐
-   - UI/UX 的設計是否符合目前的畫面風格
+   - Does it conform to the project's existing code style, naming, and architectural conventions
+     - Check naming convention consistency (camelCase, snake_case, etc.)
+     - Confirm method/function parameter and return value styles
+     - Check comment and documentation formats
+   - Does it follow project-specific design patterns and architectural decisions
+   - Are there violations of team best practices
+   - Does the UI/UX design match the current screen style
 
-5. **架構整合評估**
+5. **Architectural Integration Assessment**
 
-   - 新功能如何與現有架構無縫銜接
-   - 評估對現有模組和服務的影響
-   - 確認是否維護了向後兼容性
-   - 檢查是否保護了系統邊界和模組封裝性
+   - How new features seamlessly integrate with the existing architecture
+   - Evaluate impact on existing modules and services
+   - Confirm backward compatibility is maintained
+   - Check if system boundaries and module encapsulation are protected
 
-6. **優化建議**
-   - 針對以上檢查，整理優化後的答案
-   - 確保建議與現有架構保持一致
-   - 提供具體的代碼組織和整合策略
-   - 呼叫工具：
+6. **Optimization Suggestions**
+   - Based on the above checks, organize optimized answers
+   - Ensure suggestions are consistent with the existing architecture
+   - Provide specific code organization and integration strategies
+   - Call tool:
      ```
-     reflect_task({ summary: '分析摘要', analysis: <分析結果> })
+     reflect_task({ summary: 'Analysis Summary', analysis: <Analysis Results> })
      ```
 
-**現在開始呼叫 `reflect_task`，嚴禁不呼叫工具**
+**Now call `reflect_task`, strictly forbidden not to call the tool**

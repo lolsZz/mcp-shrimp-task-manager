@@ -1,6 +1,6 @@
 [English](README.md) | [中文](docs/zh/README.md)
 
-## 目錄
+## Table of Contents
 
 - [✨ Features](#features1)
 - [🧭 Usage Guide](#usage-guide)
@@ -93,7 +93,7 @@ Shrimp Task Manager has long-term memory capabilities, automatically saving task
 - **Avoid Duplicate Work**: Reference past tasks, no need to solve similar problems from scratch
 - **Learn from Successful Experiences**: Utilize proven effective solutions, improve development efficiency
 - **Learning and Improvement**: Identify past mistakes or inefficient solutions, continuously optimize workflows
-- **Knowledge Accumulation**: Form a continuously expanding knowledge base as system usage increases
+- **Knowledge Accumulation**: Form a continuously expanding knowledge base as system usage increaseshttps://github.com/lolsZz/mcp-shrimp-task-manager
 
 Through effective use of the task memory function, the system can continuously accumulate experience, with intelligence level and work efficiency continuously improving.
 
@@ -168,7 +168,7 @@ Shrimp Task Manager offers two configuration methods: global configuration and p
       "command": "node",
       "args": ["/mcp-shrimp-task-manager/dist/index.js"],
       "env": {
-        "DATA_DIR": "/path/to/project/data", // 必須使用絕對路徑
+        "DATA_DIR": "/path/to/project/data", // Must use absolute path
         "TEMPLATES_USE": "en",
         "ENABLE_GUI": "false"
       }

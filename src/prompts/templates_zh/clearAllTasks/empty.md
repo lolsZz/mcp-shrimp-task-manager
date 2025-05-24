@@ -1,5 +1,5 @@
-# 清除所有任務結果
+# Clear All Tasks Result
 
-## 操作提示
+## Operation Notice
 
-系統中沒有任何任務需要清除。
+There are no tasks in the system that need to be cleared.

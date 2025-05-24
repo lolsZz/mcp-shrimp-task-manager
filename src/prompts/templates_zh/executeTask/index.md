@@ -1,12 +1,12 @@
-**請嚴格遵守以下指導**
+**Please strictly follow the guidelines below**
 
-## 任務執行
+## Task Execution
 
-**名稱:** {name}
+**Name:** {name}
 
 **ID:** `{id}`
 
-**描述:** {description}
+**Description:** {description}
 
 {notesTemplate}
 
@@ -22,18 +22,18 @@
 
 {complexityTemplate}
 
-## 執行步驟
+## Execution Steps
 
-1. **分析需求** - 理解任務需求和約束條件
-2. **設計方案** - 制定實施計劃和測試策略
-3. **實施方案** - 按計劃執行，處理邊緣情況
-4. **測試驗證** - 確保功能正確性和穩健性
+1. **Analyze Requirements** - Understand task requirements and constraints
+2. **Design Solution** - Develop implementation plan and testing strategy
+3. **Implement Solution** - Execute according to plan, handle edge cases
+4. **Test and Verify** - Ensure functionality correctness and robustness
 
-## 質量要求
+## Quality Requirements
 
-- **範圍管理** - 僅修改相關代碼，避免功能蔓延
-- **代碼質量** - 符合編碼標準，處理異常情況
-- **效能考量** - 注意算法效率和資源使用
+- **Scope Management** - Only modify relevant code, avoid feature creep
+- **Code Quality** - Comply with coding standards, handle exceptions
+- **Performance Considerations** - Pay attention to algorithm efficiency and resource usage
 
-現在開始根據指示執行任務，執行完成後調用「verify_task」工具來進行驗證。
-**嚴重警告**：禁止假設任務已完成與直接調用「verify_task」，你必須透過「edit_file」或其他一切可以幫助你完成任務的工具來完成任務
+Begin executing the task according to the instructions. After completing the task, call the verify_task tool to perform verification.
+**Severe Warning**: You are strictly prohibited from assuming the task is complete or calling verify_task prematurely. You must use edit_file or any other available tools necessary to actually complete the task.

@@ -1,3 +1,3 @@
-## 依賴任務完成摘要
+## Dependency Tasks Completion Summary
 
 {{ dependencyTasks }}

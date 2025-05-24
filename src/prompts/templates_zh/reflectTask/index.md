@@ -1,53 +1,51 @@
-## 反思結果
+## Reflection Results
 
-接收到方案與建議後，進行自我反思與最終確認，並提交最終結果：
+After receiving the solution and suggestions, conduct self-reflection and final confirmation, and submit the final results:
 
-1. **需求對齊檢查**
+1. **Requirements Alignment Check**
 
-   - 最終方案是否完全滿足用戶要求與限制？
-   - 有無遺漏或偏離原始目標？
+   - Does the final solution fully satisfy user requirements and constraints?
+   - Are there any omissions or deviations from the original goals?
 
-2. **架構一致性檢查**
+2. **Architectural Consistency Check**
 
-   - 設計是否遵循專案的既有架構模式和設計原則？
-   - 是否與現有代碼風格、命名規則和組織結構保持一致？
-   - 是否適當利用了現有組件而非重新實現？
-   - 新增功能是否恰當地整合到現有架構中？
-   - 是否維護了模組邊界和責任劃分的清晰性？
+   - Does the design follow the project's existing architectural patterns and design principles?
+   - Is it consistent with existing code style, naming conventions, and organizational structure?
+   - Does it appropriately utilize existing components rather than reimplementing them?
+   - Are new features properly integrated into the existing architecture?
+   - Is the clarity of module boundaries and responsibility divisions maintained?
 
-3. **過度設計審視**
+3. **Over-design Review**
 
-   - 是否引入不必要的複雜度？
-   - 是否有功能拆分過度或抽象過度？
+   - Is unnecessary complexity introduced?
+   - Is there excessive feature splitting or abstraction?
 
-4. **簡潔與可執行性**
+4. **Simplicity and Implementability**
 
-   - 設計是否簡潔且切實可實作？
-   - 是否留有足夠空間供未來迭代？
+   - Is the design concise and practically implementable?
+   - Is there sufficient space for future iterations?
 
-5. **回饋與確認**
+5. **Feedback and Confirmation**
 
-   - 若有缺失或過度設計，列出「需要調整」項目並說明原因
-   - 若一切符合，生成「完成確認報告」
+   - If there are deficiencies or over-design, list "Items Needing Adjustment" and explain the reasons
+   - If everything is satisfactory, generate a "Completion Confirmation Report"
 
-6. **任務拆分架構考量**
+6. **Task Splitting Architectural Considerations**
 
-   - 任務拆分時應考慮現有架構的模組邊界和責任劃分
-   - 每個子任務應明確其與現有程式的整合點和依賴關係
-   - 清楚標記哪些子任務涉及重用現有代碼，哪些需要新實現
-   - 保持任務粒度一致性，避免過度拆分或粒度不均
-   - 確保拆分後的任務群組仍維持架構的整體一致性
+   - Task splitting should consider existing architectural module boundaries and responsibility divisions
+   - Each subtask should clearly specify its integration points and dependencies with existing code
+   - Clearly mark which subtasks involve reusing existing code and which require new implementation
+   - Maintain task granularity consistency, avoid excessive splitting or uneven granularity
+   - Ensure that the task group after splitting still maintains overall architectural consistency
 
-7. **提交最終結果**
-
-   - **禁止註解**：JSON 本身不支援註解，任何 `#` 或 `//` 都會導致解析失敗
-   - **注意轉義**：所有特殊字元（如雙引號 `\"`、反斜線 `\\`）必須正確轉義，否則視為非法字元
-   - **換行符號**：如果需要換行請使用跳脫符號`\\n` 或 `\\r`，直接換行會導致解析失敗
-   - 調整後的最終方案 + 反思報告
-   - 呼叫工具：
-
+7. **Submit Final Results**
+   - **No Comments Allowed**: JSON does not support comments — Any use of `#` or `//` will cause parsing failures
+   - **Proper Escaping Required**: All special characters (e.g., double quotes `\"`, backslashes `\\`) must be properly escaped, or they will be considered invalid.
+   - **Line Breaks**: If you need line breaks, use escape sequences like \\n or \\r. Direct line breaks will cause parsing errors.
+   - Adjusted final solution + reflection report
+   - Call tool:
    ```
    split_tasks( ... )
    ```
 
-**現在開始呼叫 `split_tasks`，嚴禁不呼叫工具**
+**Now start calling `split_tasks`, strictly forbidden not to call the tool**

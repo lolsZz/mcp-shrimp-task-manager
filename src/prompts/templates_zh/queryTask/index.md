@@ -1,24 +1,24 @@
-# 任務查詢結果
+# Task Query Results
 
-## 查詢資訊
+## Query Information
 
-- 查詢詞: {query}
+- Query term: {query}
 
-## 任務列表
+## Task List
 
-以下是符合查詢的任務:
+Below are tasks matching the query:
 
 {tasksContent}
 
-## 分頁資訊
+## Pagination Information
 
-- 當前頁: {page} / {totalPages}
-- 每頁顯示: {pageSize} 筆
-- 總計結果: {totalTasks} 筆
+- Current page: {page} / {totalPages}
+- Items per page: {pageSize}
+- Total results: {totalTasks}
 
-您可以指定 page 參數查看更多結果。
+You can specify the page parameter to view more results.
 
-## 相關操作提示
+## Related Operation Tips
 
-- 使用 `get_task_detail {任務ID}` 查看任務完整詳情
-- 使用 `list_tasks` 查看所有任務
+- Use `get_task_detail {taskID}` to view complete task details
+- Use `list_tasks` to view all tasks

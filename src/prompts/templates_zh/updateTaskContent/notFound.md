@@ -1,5 +1,5 @@
-# 任務更新結果
+# Task Update Result
 
-## 系統錯誤
+## System Error
 
-找不到 ID 為 `{taskId}` 的任務。請使用「list_tasks」工具確認有效的任務 ID 後再試。
+Task with ID `{taskId}` not found. Please use the "list_tasks" tool to confirm valid task IDs and try again.

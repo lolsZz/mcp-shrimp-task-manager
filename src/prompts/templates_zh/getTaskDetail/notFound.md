@@ -1,3 +1,3 @@
-## 錯誤
+## Error
 
-找不到 ID 為 `{taskId}` 的任務。請確認任務 ID 是否正確。
+Task with ID `{taskId}` not found. Please verify that the task ID is correct.

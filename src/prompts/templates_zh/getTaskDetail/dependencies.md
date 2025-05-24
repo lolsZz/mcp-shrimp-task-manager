@@ -1,1 +1,1 @@
-**依賴任務:** {dependencies}
+**Dependencies:** {dependencies}

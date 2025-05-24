@@ -2,12 +2,12 @@
 
 **ID:** `{id}`
 
-**描述:** {description}
+**Description:** {description}
 
 {complatedSummary}
 
-**依賴:** {dependencies}
+**Dependencies:** {dependencies}
 
-**創建時間:** {createAt}
+**Creation Time:** {createAt}
 
 {complatedAt}

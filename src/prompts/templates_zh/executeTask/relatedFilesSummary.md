@@ -1,5 +1,5 @@
-## 相關文件
+## Related Files
 
-可以使用 `update_task` 工具添加相關文件，以便在執行任務時提供上下文。
+You can use the `update_task` tool to add related files to provide context when executing the task.
 
 {relatedFilesSummary}

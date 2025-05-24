@@ -1,34 +1,34 @@
-## 任務拆分 - {updateMode} 模式
+## Task Splitting - {updateMode} Mode
 
-## 拆分策略
+## Splitting Strategy
 
-1. **按功能分解** - 獨立可測試的子功能，明確輸入輸出
-2. **按技術層次分解** - 沿架構層次分離任務，確保接口明確
-3. **按開發階段分解** - 核心功能先行，優化功能後續
-4. **按風險分解** - 隔離高風險部分，降低整體風險
+1. **Functional Decomposition** - Independent testable sub-functions with clear inputs and outputs
+2. **Technical Layer Decomposition** - Separate tasks along architectural layers, ensuring clear interfaces
+3. **Development Stage Decomposition** - Core functionality first, optimization features later
+4. **Risk-based Decomposition** - Isolate high-risk parts, reduce overall risk
 
-## 任務質量審核
+## Task Quality Review
 
-1. **任務原子性** - 每個任務足夠小且具體，可獨立完成
-2. **依賴關係** - 任務依賴形成有向無環圖，避免循環依賴
-3. **描述完整性** - 每個任務描述清晰準確，包含必要上下文
+1. **Task Atomicity** - Each task is small and specific enough to be completed independently
+2. **Dependencies** - Task dependencies form a directed acyclic graph, avoiding circular dependencies
+3. **Description Completeness** - Each task description is clear and accurate, including necessary context
 
-## 任務清單
+## Task List
 
 {tasksContent}
 
-## 依賴關係管理
+## Dependency Management
 
-- 設置依賴可使用任務名稱或任務 ID
-- 最小化依賴數量，只設置直接前置任務
-- 避免循環依賴，確保任務圖有向無環
-- 平衡關鍵路徑，優化並行執行可能性
+- Dependencies can be set using task names or task IDs
+- Minimize the number of dependencies, only set direct prerequisite tasks
+- Avoid circular dependencies, ensure the task graph is directed and acyclic
+- Balance the critical path, optimize possibilities for parallel execution
 
-## 決策點
+## Decision Points
 
-- 發現任務拆分不合理：重新呼叫「split_tasks」調整
-- 確認任務拆分完善：生成執行計劃，確定優先順序
+- If task splitting is found unreasonable: call "split_tasks" again to adjust
+- If task splitting is confirmed to be sound: generate execution plan, determine priorities
 
-**嚴重警告** 你每次呼叫 split_tasks 傳遞的參數不能超過 5000 個字，如果超出 5000 個字請多次呼叫工具完成
+**Severe Warning** Each time you call split_tasks, the parameters you pass cannot exceed 5000 characters. If it exceeds 5000 characters, please call the tool multiple times to complete
 
-**如果還有剩餘任務請繼續呼叫「split_tasks」**
+**If there are remaining tasks, please continue to call "split_tasks"**

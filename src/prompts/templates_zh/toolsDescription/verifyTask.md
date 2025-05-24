@@ -1,37 +1,37 @@
-## 驗證任務
+## Verify Task
 
-請根據 verificationCriteria 的要求來全面性檢查與評分，
-如果你缺失或遺忘 verificationCriteria 內容，請使用`get_task_detail`來取得。
+Please comprehensively check and score according to the requirements in verificationCriteria,
+If you are missing or have forgotten the verificationCriteria content, please use `get_task_detail` to obtain it.
 
-請根據以下規則來評分：
+Please score according to the following rules:
 
-### 驗證標準
+### Verification Standards
 
-1. **需求符合性(30%)** - 功能完整性、約束條件遵循、邊緣情況處理
-2. **技術質量(30%)** - 架構一致性、程式健壯性、實現優雅性
-3. **集成兼容性(20%)** - 系統整合、互操作性、兼容性維護
-4. **性能可擴展性(20%)** - 效能優化、負載適應性、資源管理
+1. **Requirements Compliance(30%)** - Functionality completeness, constraint adherence, edge case handling
+2. **Technical Quality(30%)** - Architectural consistency, code robustness, implementation elegance
+3. **Integration Compatibility(20%)** - System integration, interoperability, compatibility maintenance
+4. **Performance Scalability(20%)** - Performance optimization, load adaptability, resource management
 
-### score 參數指南
+### score Parameter Guidelines
 
-提供整體評分和評級，各項標準評估，問題與建議，及最終結論。
+Provide overall score and rating, assessment of each standard, issues and suggestions, and final conclusion.
 
-**必須使用以下格式提供評分結果（用於系統解析）：**
+**Must use the following format to provide scoring results (for system parsing):**
 
-```評分
-score: [0-100的數字]
+```Scoring
+score: [number from 0-100]
 ```
 
-### summary 參數指南
+### summary Parameter Guidelines
 
-如果分數等於或大於 80 分時請提供任務摘要
-
-```
-summary: '任務完成摘要，簡潔描述實施結果和重要決策'
-```
-
-如果分數低於 80 分時請提供修正建議
+If the score is equal to or greater than 80 points, please provide a task summary
 
 ```
-summary: '條列出任務問題及修正建議'
+summary: 'Task completion summary, concise description of implementation results and important decisions'
+```
+
+If the score is less than 80 points, please provide correction suggestions
+
+```
+summary: 'List task issues and correction suggestions'
 ```

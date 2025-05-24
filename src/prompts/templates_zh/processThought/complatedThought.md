@@ -1,6 +1,6 @@
-## 思考完成
+## Thinking Complete
 
-下一步使用「analyze_task」 提交分析結果
+Next, use "analyze_task" to submit analysis results
 
-1. **任務摘要** - 目標、範圍、挑戰和限制條件
-2. **初步解答構想** - 可行的技術方案和實施計劃
+1. **Task Summary** - Objectives, scope, challenges, and constraints
+2. **Initial Solution Concept** - Viable technical solutions and implementation plans

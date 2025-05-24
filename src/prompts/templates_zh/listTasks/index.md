@@ -1,6 +1,6 @@
-# 任務管理儀表板
+# Task Management Dashboard
 
-## 任務狀態概覽
+## Task Status Overview
 
 {statusCount}
 

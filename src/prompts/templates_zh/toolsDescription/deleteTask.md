@@ -1,1 +1,1 @@
-刪除未完成的任務，但不允許刪除已完成的任務，確保系統記錄的完整性
+Delete incomplete tasks, but does not allow deleting completed tasks, ensuring the integrity of system records

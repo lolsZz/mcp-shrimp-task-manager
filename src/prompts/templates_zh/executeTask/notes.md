@@ -1,1 +1,1 @@
-**注意事項:** {notes}
+**Notes:** {notes}

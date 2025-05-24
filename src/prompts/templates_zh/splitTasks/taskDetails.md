@@ -1,12 +1,12 @@
-### 任務 {index}：{name}
+### Task {index}: {name}
 
 **ID:** `{id}`
-**描述:** {description}
+**Description:** {description}
 
-**注意事項:** {notes}
+**Notes:** {notes}
 
-**實現指南:** {implementationGuide}
+**Implementation Guide:** {implementationGuide}
 
-**驗證標準:** {verificationCriteria}
+**Verification Criteria:** {verificationCriteria}
 
-**依賴任務:** {dependencies}
+**Dependencies:** {dependencies}

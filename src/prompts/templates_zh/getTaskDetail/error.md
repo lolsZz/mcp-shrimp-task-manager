@@ -1,3 +1,3 @@
-## 系統錯誤
+## System Error
 
-取得任務詳情時發生錯誤: {errorMessage}
+An error occurred while retrieving task details: {errorMessage}

@@ -1,1 +1,1 @@
-根據關鍵字或 ID 搜尋任務，顯示省略版的任務資訊
+Search for tasks based on keywords or ID, display abbreviated task information

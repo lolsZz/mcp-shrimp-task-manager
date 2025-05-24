@@ -1,5 +1,5 @@
-**完成時間:** {completedTime}
+**Completion Time:** {completedTime}
 
-**完成摘要:**
+**Completion Summary:**
 
 {summary}

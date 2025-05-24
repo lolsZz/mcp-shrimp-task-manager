@@ -1,1 +1,1 @@
-批判性審查分析結果，評估方案完整性並識別優化機會，確保解決方案符合最佳實踐，如果需要提供程式碼請使用 pseudocode 格式且僅提供高級邏輯流程和關鍵步驟避免完整代碼
+Critically review analysis results, assess solution completeness and identify optimization opportunities, ensure solutions conform to best practices, if code needs to be provided use pseudocode format and only provide high-level logic flow and key steps avoiding complete code

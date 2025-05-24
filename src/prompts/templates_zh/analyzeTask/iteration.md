@@ -1,12 +1,12 @@
-## 迭代分析
+## Iteration Analysis
 
-請對照先前分析結果：
+Please compare with previous analysis results:
 
 {previousAnalysis}
 
-請識別：
+Please identify:
 
-1. 已解決的問題及解決方案有效性
-2. 仍存在的問題及其優先級
-3. 新方案如何解決未解決問題
-4. 迭代過程中獲得的新見解
+1. Problems that have been resolved and the effectiveness of solutions
+2. Problems that still exist and their priorities
+3. How the new solution addresses unresolved issues
+4. New insights gained during the iteration process

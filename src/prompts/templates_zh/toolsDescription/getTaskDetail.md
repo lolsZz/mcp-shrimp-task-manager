@@ -1,1 +1,1 @@
-根據任務 ID 獲取任務的完整詳細信息，包括未截斷的實現指南和驗證標準等
+Retrieve complete detailed information of a task based on task ID, including untruncated implementation guides and verification criteria

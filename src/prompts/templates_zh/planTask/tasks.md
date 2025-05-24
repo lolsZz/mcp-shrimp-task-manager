@@ -1,17 +1,17 @@
-### 現有任務參考
+### Existing Task References
 
-#### 已完成任務
+#### Completed Tasks
 
 {completedTasks}
 
-#### 未完成任務
+#### Incomplete Tasks
 
 {unfinishedTasks}
 
-#### 任務調整原則
+#### Task Adjustment Principles
 
-1. **已完成任務保護** - 已完成任務不可修改或刪除
-2. **未完成任務可調整** - 可根據新需求修改未完成任務
-3. **任務 ID 一致性** - 引用現有任務必須使用原始 ID
-4. **依賴關係完整性** - 避免循環依賴，不依賴已標記移除的任務
-5. **任務延續性** - 新任務應與現有任務構成連貫整體
+1. **Completed Task Protection** - Completed tasks cannot be modified or deleted
+2. **Incomplete Task Adjustability** - Incomplete tasks can be modified based on new requirements
+3. **Task ID Consistency** - Must use original IDs when referencing existing tasks
+4. **Dependency Relationship Integrity** - Avoid circular dependencies, do not depend on tasks marked for removal
+5. **Task Continuity** - New tasks should form a coherent whole with existing tasks

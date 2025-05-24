@@ -1,12 +1,12 @@
-**請嚴格遵守以下指導**
+**Please strictly follow the guidelines below**
 
-## 驗證失敗
+## Verification Failed
 
-任務 "{name}" (ID: `{id}`) 驗證失敗
+Task "{name}" (ID: `{id}`) verification failed
 
-### 修正建議事項
+### Correction Suggestions
 
 {summary}
 
-**重要提示：**
-請試圖修正問題後重新呼叫 `verify_task` 重新驗證任務
+**Important Note:**
+Please attempt to fix the issues and call `verify_task` again to re-verify the task

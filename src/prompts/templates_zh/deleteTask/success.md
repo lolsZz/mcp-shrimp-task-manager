@@ -1,5 +1,5 @@
-# 任務刪除結果
+# Task Deletion Result
 
-## 操作成功
+## Operation Successful
 
-任務已成功刪除。
+The task has been successfully deleted.

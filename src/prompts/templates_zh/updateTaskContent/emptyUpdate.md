@@ -1,5 +1,5 @@
-# 任務更新結果
+# Task Update Result
 
-## 操作失敗
+## Operation Failed
 
-至少需要更新一個字段（名稱、描述、注記或相關文件）
+At least one field needs to be updated (name, description, notes, or related files)

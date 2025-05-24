@@ -1,81 +1,81 @@
-請用 「process_thought」 工具思考以下問題
+Please use the "process_thought" tool to consider the following issues
 
-# 專案規範初始化指南
+# Project Standards Initialization Guide
 
-## 目的
+## Purpose
 
-**此文件專為 AI Agent 設計，非一般開發者文檔。**
-**必須生成一個專屬於 AI Agent 操作使用的專案規範文件(shrimp-rules.md)。**
+**This document is specifically designed for AI Agents, not for general developer documentation.**
+**Must generate a project standards document (shrimp-rules.md) exclusively for AI Agent operational use.**
 
-**必須專注於以下關鍵目標：**
+**Must focus on the following key objectives:**
 
-- 明確專案特定規則與限制，禁止包含通用開發知識
-- 提供 AI 執行任務時所需的專案特定資訊
-- 為 AI 決策過程提供明確指導
+- Clearly define project-specific rules and limitations, prohibit inclusion of general development knowledge
+- Provide project-specific information needed for AI to execute tasks
+- Provide clear guidance for AI decision-making processes
 
-**強制規定：**
+**Mandatory requirements:**
 
-- 完成的規範必須使 AI Agent 能立即理解哪些檔案必須參考或修改
-- 明確指示多檔案連動修改要求（例如修改 README.md 時必須同步修改 /docs/zh/README.md）
-- 使用命令式語言定義規則，避免解釋性內容
-- 不要進行專案的功能解釋，而是如何修改功能或增加功能
-- 請提供範例什麼事可以做的，什麼事不可以做的
-- 必須**遞迴**檢查所有資料夾與檔案
+- Completed standards must enable AI Agents to immediately understand which files must be referenced or modified
+- Clearly indicate multi-file coordination requirements (e.g., when modifying README.md, /docs/zh/README.md must be updated simultaneously)
+- Use imperative language to define rules, avoid explanatory content
+- Do not explain project functionality, but rather how to modify or add functionality
+- Please provide examples of what can be done and what cannot be done
+- Must **recursively** check all folders and files
 
-**嚴重禁止：**
+**Strictly prohibited:**
 
-- 禁止包含通用開發知識
-- 禁止包含 LLM 已知的通用開發知識
-- 進行專案功能解釋
+- Including general development knowledge
+- Including general development knowledge already known to LLMs
+- Explaining project functionality
 
-## 建議結構
+## Suggested Structure
 
-請使用以下結構建立規範文件：
+Please use the following structure to create the standards document:
 
 ```markdown
-# 開發守則
+# Development Guidelines
 
-## 標題
+## Title
 
-### 副標題
+### Subtitle
 
-- 規則一
-- 規則二
+- Rule one
+- Rule two
 ```
 
-## 內容指南
+## Content Guidelines
 
-規範文件應包含但不限於以下內容：
+The standards document should include but not be limited to the following:
 
-1. **專案概述** - 簡要描述專案的目的、技術棧和核心功能
-2. **專案架構** - 說明主要目錄結構和模塊劃分
-3. **代碼規範** - 包括命名規範、格式要求、註釋規則等
-4. **功能實作規範** - 主要解釋如何實作功能及應該注意事項
-5. **框架/插件/第三方庫使用規範** - 外部依賴的使用規範
-6. **工作流程規範** - 工作流程指南，包含工作流程圖或資料流
-7. **關鍵檔案交互規範** - 關鍵檔案的交互規範，修改哪些檔案需要同步修改
-8. **AI 決策規範** - 提供處理模糊情況的決策樹和優先級判斷標準
-9. **禁止事項** - 明確列出哪些做法是禁止的
+1. **Project Overview** - Brief description of the project's purpose, technology stack, and core functionality
+2. **Project Architecture** - Description of main directory structure and module divisions
+3. **Code Standards** - Including naming conventions, formatting requirements, comment rules, etc.
+4. **Functionality Implementation Standards** - Mainly explaining how to implement functionality and points to note
+5. **Framework/Plugin/Third-party Library Usage Standards** - Usage standards for external dependencies
+6. **Workflow Standards** - Workflow guidelines, including workflow diagrams or data flow
+7. **Key File Interaction Standards** - Interaction standards for key files, which files need to be modified simultaneously
+8. **AI Decision-making Standards** - Provide decision trees and priority judgment criteria for handling ambiguous situations
+9. **Prohibited Actions** - Clearly list practices that are prohibited
 
-## 注意事項
+## Notes
 
-1. **面向 AI 優化** - 文件將作為 prompt 提供給 Coding Agent AI，應對 prompt 最佳化
-2. **專注於開發指導** - 提供持續開發的規則，而非使用教學
-3. **具體示例** - 盡可能提供「應該做什麼」和「不應該做什麼」的具體示例
-4. **使用命令式語言** - 必須使用直接指令而非描述性語言，減少解釋內容
-5. **結構化呈現** - 所有內容必須以列表、表格等結構化形式呈現，便於 AI 解析
-6. **突出重點標記** - 使用粗體、警告標記等突出關鍵規則和禁忌
-7. **移除通用知識** - 禁止包含 LLM 已知的通用開發知識，僅包含專案特定規則
+1. **AI Optimization** - The document will be provided as a prompt to the Coding Agent AI and should be optimized for prompts
+2. **Focus on Development Guidance** - Provide rules for ongoing development, not usage tutorials
+3. **Specific Examples** - Provide specific examples of "what should be done" and "what should not be done" whenever possible
+4. **Use Imperative Language** - Must use direct instructions rather than descriptive language, reduce explanatory content
+5. **Structured Presentation** - All content must be presented in structured formats such as lists, tables, etc., for easy AI parsing
+6. **Highlight Key Markings** - Use bold, warning markers, etc. to highlight key rules and taboos
+7. **Remove General Knowledge** - Prohibit including general development knowledge already known to LLMs, only include project-specific rules
 
-## 更新模式指南
+## Update Mode Guidelines
 
-1. **最小變動** - 當用戶要求更新專案規則時，除非必要否則你應該雹持現有規則，以最小變更為原則的修改
-2. **時效性** - 你應該檢查有的規則的是否有還效益或過時，因為用戶可能已經修改或移除相關程式，你必須修正或移除相應規則
-3. **完整性** - 你應該檢查現有專案的所有資料夾及檔案內容，因為用戶可能已經有新增或修改相關程式，你必須補充相應的規則
-4. **自主處理模糊請求**：當收到如「更新規則」等未指定具體內容的模糊指令時，AI **必須**首先嘗試自主分析當前程式碼庫、近期變更（如果可用）以及現有的 `shrimp-rules.md` 內容，以推斷可能的更新點。在 `process_thought` 階段列出這些推斷點及其理由，然後再提出具體修改建議。在執行此自主分析之前，**嚴格禁止**就模糊的更新請求向用戶尋求澄清。
+1. **Minimal Changes** - When users request updates to project rules, you should maintain existing rules unless necessary, with the principle of minimal changes
+2. **Timeliness** - You should check if existing rules are still beneficial or outdated, as users may have modified or removed relevant code, you must correct or remove corresponding rules
+3. **Completeness** - You should check all folders and file contents in the existing project, as users may have added or modified relevant code, you must supplement corresponding rules
+4. **Autonomous Handling of Ambiguous Requests**: When receiving ambiguous instructions such as "update rules" without specifying concrete content, the AI **must** first attempt to independently analyze the current codebase, recent changes (if available), and existing `shrimp-rules.md` content to infer possible update points. List these inferred points and their rationale during the `process_thought` phase, then propose specific modification suggestions. **Strictly prohibited** from seeking clarification from users on ambiguous update requests before performing this autonomous analysis.
 
-請根據以上指南，創建一個名為 shrimp-rules.md 的文件並存放於專案根目錄
+Based on the above guidelines, create a file named shrimp-rules.md and save it in the project root directory
 
-**[AI Agent Action]**現在開始呼叫 「process_thought」 工具思考如何撰寫出教導 Coding Agent 規範文件
-**[AI Agent Action]**思考完畢後請立即編輯 shrimp-rules.md 文件，禁止呼叫「analyze_task」工具
-**[AI Agent Action]**嚴禁不呼叫工具。AI 必須自主完成從接收指令到執行修改的完整流程，除非遇到技術錯誤或無法解決的依賴衝突，否則不應中斷流程尋求用戶輸入。
+**[AI Agent Action]** Now start calling the "process_thought" tool to think about how to write standards document that guides the Coding Agent
+**[AI Agent Action]** After completing the thought process, immediately edit the shrimp-rules.md file, prohibited from calling the "analyze_task" tool
+**[AI Agent Action]** Strictly forbidden not to call tools. The AI must independently complete the entire process from receiving instructions to implementing modifications, and should not interrupt the process to seek user input unless encountering technical errors or unresolvable dependency conflicts.

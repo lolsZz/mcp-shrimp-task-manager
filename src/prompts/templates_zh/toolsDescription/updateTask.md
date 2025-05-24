@@ -1,1 +1,1 @@
-更新任務內容，包括名稱、描述和注記、依賴任務、相關文件、實現指南和驗證標準，已完成的任務僅允許更新摘要和相關文件
+Update task content, including name, description and notes, dependent tasks, related files, implementation guide, and verification criteria, completed tasks only allow updating summary and related files

@@ -1,1 +1,1 @@
-清除未完的任務，並重置任務列表
+Clear incomplete tasks and reset the task list

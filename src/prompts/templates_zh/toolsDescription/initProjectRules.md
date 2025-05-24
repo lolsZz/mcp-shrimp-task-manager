@@ -1,1 +1,1 @@
-初始化專案規範，當用戶要求產生或初始化專案規範文件時呼叫該工具，如果用戶要求變更或更新專案規範也呼叫該工具
+Initialize project standards, call this tool when the user requests to generate or initialize a project standards document, also call this tool if the user requests to change or update project standards

@@ -1,5 +1,5 @@
-# 清除所有任務結果
+# Clear All Tasks Result
 
-## 操作成功
+## Operation Successful
 
-所有未完成的任務已被清除。{backupInfo}
+All incomplete tasks have been cleared.{backupInfo}

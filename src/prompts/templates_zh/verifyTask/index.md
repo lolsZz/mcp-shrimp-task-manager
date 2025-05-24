@@ -1,17 +1,17 @@
-**請嚴格遵守以下指導**
+**Please strictly follow the guidelines below**
 
-## 任務完成確認
+## Task Completion Confirmation
 
-任務 "{name}" (ID: `{id}`) 已於成功標記為完成。
+Task "{name}" (ID: `{id}`) has been successfully marked as completed.
 
-## 任務摘要要求
+## Task Summary Requirements
 
-請提供此次完成任務的摘要總結，包含以下關鍵要點：
+Please provide a summary of this completed task, including the following key points:
 
-1. 任務目標與主要成果
-2. 實施的解決方案要點
-3. 遇到的主要挑戰及解決方法
+1. Task objectives and main accomplishments
+2. Key points of the implemented solution
+3. Major challenges encountered and solutions
 
-**重要提示：**
-請在當前回應中提供任務摘要總結。完成本次任務摘要後，請等待用戶明確指示後再繼續執行其他任務。請勿自動開始執行下一個任務。
-如果用戶要求連續執行任務，請使用「execute_task」工具開始執行下一個任務。
+**Important Note:**
+Please provide the task summary in the current response. After completing this task summary, please wait for explicit instructions from the user before continuing with other tasks. Do not automatically start executing the next task.
+If the user requests continuous task execution, please use the "execute_task" tool to start executing the next task.

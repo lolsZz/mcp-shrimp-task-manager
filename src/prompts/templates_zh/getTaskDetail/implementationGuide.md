@@ -1,3 +1,3 @@
-**實現指南:**
+**Implementation Guide:**
 
 {implementationGuide}

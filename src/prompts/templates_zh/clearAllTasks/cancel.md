@@ -1,7 +1,7 @@
-# 清除所有任務結果
+# Clear All Tasks Result
 
-## 操作取消
+## Operation Cancelled
 
-未確認清除操作。如要清除所有任務，請將 confirm 參數設為 true。
+The clearing operation was not confirmed. To clear all tasks, please set the confirm parameter to true.
 
-⚠️ 此操作將刪除所有未完成的任務且無法恢復。
+⚠️ This operation will delete all incomplete tasks and cannot be undone.
