@@ -5,23 +5,23 @@ import { getAllTasks } from "../../models/taskModel.js";
 import { TaskStatus, Task } from "../../types/index.js";
 import { getPlanTaskPrompt } from "../../prompts/index.js";
 
-// 開始規劃工具
+// Task planning tool
 export const planTaskSchema = z.object({
   description: z
     .string()
     .min(10, {
-      message: "任務描述不能少於10個字符，請提供更詳細的描述以確保任務目標明確",
+      message: "Task description must be at least 10 characters, please provide more detailed description to ensure task objectives are clear",
     })
-    .describe("完整詳細的任務問題描述，應包含任務目標、背景及預期成果"),
+    .describe("Complete detailed task problem description, should include task objectives, background and expected outcomes"),
   requirements: z
     .string()
     .optional()
-    .describe("任務的特定技術要求、業務約束條件或品質標準（選填）"),
+    .describe("Task-specific technical requirements, business constraints or quality standards (optional)"),
   existingTasksReference: z
     .boolean()
     .optional()
     .default(false)
-    .describe("是否參考現有任務作為規劃基礎，用於任務調整和延續性規劃"),
+    .describe("Whether to reference existing tasks as planning foundation, for task adjustment and continuity planning"),
 });
 
 export async function planTask({

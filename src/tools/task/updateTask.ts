@@ -7,60 +7,60 @@ import {
 import { RelatedFileType } from "../../types/index.js";
 import { getUpdateTaskContentPrompt } from "../../prompts/index.js";
 
-// 更新任務內容工具
+// Update task content tool
 export const updateTaskContentSchema = z.object({
   taskId: z
     .string()
     .regex(UUID_V4_REGEX, {
-      message: "任務ID格式無效，請提供有效的UUID v4格式",
+      message: "Invalid task ID format, please provide valid UUID v4 format",
     })
-    .describe("待更新任務的唯一標識符，必須是系統中存在且未完成的任務ID"),
-  name: z.string().optional().describe("任務的新名稱（選填）"),
-  description: z.string().optional().describe("任務的新描述內容（選填）"),
-  notes: z.string().optional().describe("任務的新補充說明（選填）"),
+    .describe("Unique identifier of the task to be updated, must be an existing and uncompleted task ID in the system"),
+  name: z.string().optional().describe("New name for the task (optional)"),
+  description: z.string().optional().describe("New description content for the task (optional)"),
+  notes: z.string().optional().describe("New supplementary notes for the task (optional)"),
   dependencies: z
     .array(z.string())
     .optional()
-    .describe("任務的新依賴關係（選填）"),
+    .describe("New dependency relationships for the task (optional)"),
   relatedFiles: z
     .array(
       z.object({
         path: z
           .string()
-          .min(1, { message: "文件路徑不能為空，請提供有效的文件路徑" })
-          .describe("文件路徑，可以是相對於項目根目錄的路徑或絕對路徑"),
+          .min(1, { message: "File path cannot be empty, please provide valid file path" })
+          .describe("File path, can be relative to project root directory or absolute path"),
         type: z
           .nativeEnum(RelatedFileType)
           .describe(
-            "文件與任務的關係類型 (TO_MODIFY, REFERENCE, CREATE, DEPENDENCY, OTHER)"
+            "Relationship type between file and task (TO_MODIFY, REFERENCE, CREATE, DEPENDENCY, OTHER)"
           ),
-        description: z.string().optional().describe("文件的補充描述（選填）"),
+        description: z.string().optional().describe("Supplementary description for the file (optional)"),
         lineStart: z
           .number()
           .int()
           .positive()
           .optional()
-          .describe("相關代碼區塊的起始行（選填）"),
+          .describe("Starting line of related code block (optional)"),
         lineEnd: z
           .number()
           .int()
           .positive()
           .optional()
-          .describe("相關代碼區塊的結束行（選填）"),
+          .describe("Ending line of related code block (optional)"),
       })
     )
     .optional()
     .describe(
-      "與任務相關的文件列表，用於記錄與任務相關的代碼文件、參考資料、要建立的檔案等（選填）"
+      "List of files related to the task, used to record code files, reference materials, files to be created, etc. related to the task (optional)"
     ),
   implementationGuide: z
     .string()
     .optional()
-    .describe("任務的新實現指南（選填）"),
+    .describe("New implementation guide for the task (optional)"),
   verificationCriteria: z
     .string()
     .optional()
-    .describe("任務的新驗證標準（選填）"),
+    .describe("New verification criteria for the task (optional)"),
 });
 
 export async function updateTaskContent({

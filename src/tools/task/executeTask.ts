@@ -10,14 +10,14 @@ import { TaskStatus, Task } from "../../types/index.js";
 import { getExecuteTaskPrompt } from "../../prompts/index.js";
 import { loadTaskRelatedFiles } from "../../utils/fileLoader.js";
 
-// 執行任務工具
+// Task execution tool
 export const executeTaskSchema = z.object({
   taskId: z
     .string()
     .regex(UUID_V4_REGEX, {
-      message: "任務ID格式無效，請提供有效的UUID v4格式",
+      message: "Invalid task ID format, please provide valid UUID v4 format",
     })
-    .describe("待執行任務的唯一標識符，必須是系統中存在的有效任務ID"),
+    .describe("Unique identifier of the task to be executed, must be a valid task ID existing in the system"),
 });
 
 export async function executeTask({

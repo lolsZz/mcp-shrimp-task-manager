@@ -8,27 +8,27 @@ import {
 import { TaskStatus } from "../../types/index.js";
 import { getVerifyTaskPrompt } from "../../prompts/index.js";
 
-// 檢驗任務工具
+// Task verification tool
 export const verifyTaskSchema = z.object({
   taskId: z
     .string()
     .regex(UUID_V4_REGEX, {
-      message: "任務ID格式無效，請提供有效的UUID v4格式",
+      message: "Invalid task ID format, please provide valid UUID v4 format",
     })
-    .describe("待驗證任務的唯一標識符，必須是系統中存在的有效任務ID"),
+    .describe("Unique identifier of the task to be verified, must be a valid task ID existing in the system"),
   summary: z
     .string()
     .min(30, {
-      message: "最少30個字",
+      message: "Minimum 30 characters",
     })
     .describe(
-      "當分數高於或等於 80分時代表任務完成摘要，簡潔描述實施結果和重要決策，當分數低於 80分時代表缺失或需要修正的部分說明，最少30個字"
+      "When score is higher than or equal to 80 points, represents task completion summary with concise description of implementation results and important decisions. When score is lower than 80 points, represents description of missing or parts that need correction, minimum 30 characters"
     ),
   score: z
     .number()
-    .min(0, { message: "分數不能小於0" })
-    .max(100, { message: "分數不能大於100" })
-    .describe("針對任務的評分，當評分等於或超過80分時自動完成任務"),
+    .min(0, { message: "Score cannot be less than 0" })
+    .max(100, { message: "Score cannot be greater than 100" })
+    .describe("Score for the task, task is automatically completed when score equals or exceeds 80 points"),
 });
 
 export async function verifyTask({

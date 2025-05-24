@@ -2,17 +2,17 @@ import { z } from "zod";
 import { searchTasksWithCommand } from "../../models/taskModel.js";
 import { getGetTaskDetailPrompt } from "../../prompts/index.js";
 
-// 取得完整任務詳情的參數
+// Parameters for getting complete task details
 export const getTaskDetailSchema = z.object({
   taskId: z
     .string()
     .min(1, {
-      message: "任務ID不能為空，請提供有效的任務ID",
+      message: "Task ID cannot be empty, please provide valid task ID",
     })
-    .describe("欲檢視詳情的任務ID"),
+    .describe("Task ID to view details"),
 });
 
-// 取得任務完整詳情
+// Get complete task details
 export async function getTaskDetail({
   taskId,
 }: z.infer<typeof getTaskDetailSchema>) {

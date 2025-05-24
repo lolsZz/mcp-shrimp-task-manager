@@ -5,15 +5,15 @@ import {
 } from "../../models/taskModel.js";
 import { getClearAllTasksPrompt } from "../../prompts/index.js";
 
-// 清除所有任務工具
+// Clear all tasks tool
 export const clearAllTasksSchema = z.object({
   confirm: z
     .boolean()
     .refine((val) => val === true, {
       message:
-        "必須明確確認清除操作，請將 confirm 參數設置為 true 以確認此危險操作",
+        "Must explicitly confirm clear operation, please set confirm parameter to true to confirm this dangerous operation",
     })
-    .describe("確認刪除所有未完成的任務（此操作不可逆）"),
+    .describe("Confirm deletion of all uncompleted tasks (this operation is irreversible)"),
 });
 
 export async function clearAllTasks({

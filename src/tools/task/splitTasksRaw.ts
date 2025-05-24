@@ -7,22 +7,22 @@ import {
 import { RelatedFileType, Task } from "../../types/index.js";
 import { getSplitTasksPrompt } from "../../prompts/index.js";
 
-// 拆分任務工具
+// Task splitting tool (raw)
 export const splitTasksRawSchema = z.object({
   updateMode: z
     .enum(["append", "overwrite", "selective", "clearAllTasks"])
     .describe(
-      "任務更新模式選擇：'append'(保留所有現有任務並添加新任務)、'overwrite'(清除所有未完成任務並完全替換，保留已完成任務)、'selective'(智能更新：根據任務名稱匹配更新現有任務，保留不在列表中的任務，推薦用於任務微調)、'clearAllTasks'(清除所有任務並創建備份)。\n預設為'clearAllTasks'模式，只有用戶要求變更或修改計劃內容才使用其他模式"
+      "Task update mode selection: 'append'(keep all existing tasks and add new tasks), 'overwrite'(clear all uncompleted tasks and completely replace, keep completed tasks), 'selective'(smart update: match and update existing tasks by task name, keep tasks not in list, recommended for task fine-tuning), 'clearAllTasks'(clear all tasks and create backup).\nDefault is 'clearAllTasks' mode, only use other modes when user requests changes or modification of plan content"
     ),
   tasksRaw: z
     .string()
     .describe(
-      "結構化的任務清單，每個任務應保持原子性且有明確的完成標準，避免過於簡單的任務，簡單修改可與其他任務整合，避免任務過多，範例：[{name: '簡潔明確的任務名稱，應能清晰表達任務目的', description: '詳細的任務描述，包含實施要點、技術細節和驗收標準', implementationGuide: '此特定任務的具體實現方法和步驟，請參考之前的分析結果提供精簡pseudocode', notes: '補充說明、特殊處理要求或實施建議（選填）', dependencies: ['此任務依賴的前置任務完整名稱'], relatedFiles: [{path: '文件路徑', type: '文件類型 (TO_MODIFY: 待修改, REFERENCE: 參考資料, CREATE: 待建立, DEPENDENCY: 依賴文件, OTHER: 其他)', description: '文件描述', lineStart: 1, lineEnd: 100}], verificationCriteria: '此特定任務的驗證標準和檢驗方法'}, {name: '任務2', description: '任務2描述', implementationGuide: '任務2實現方法', notes: '補充說明、特殊處理要求或實施建議（選填）', dependencies: ['任務1'], relatedFiles: [{path: '文件路徑', type: '文件類型 (TO_MODIFY: 待修改, REFERENCE: 參考資料, CREATE: 待建立, DEPENDENCY: 依賴文件, OTHER: 其他)', description: '文件描述', lineStart: 1, lineEnd: 100}], verificationCriteria: '此特定任務的驗證標準和檢驗方法'}]"
+      "Structured task list, each task should maintain atomicity and have clear completion criteria, avoid overly simple tasks, simple modifications can be integrated with other tasks, avoid too many tasks, example: [{name: 'Concise and clear task name, should clearly express task purpose', description: 'Detailed task description, including implementation points, technical details and acceptance criteria', implementationGuide: 'Specific implementation methods and steps for this particular task, please refer to previous analysis results and provide concise pseudocode', notes: 'Supplementary notes, special handling requirements or implementation suggestions (optional)', dependencies: ['Complete name of prerequisite tasks this task depends on'], relatedFiles: [{path: 'file path', type: 'file type (TO_MODIFY: to be modified, REFERENCE: reference material, CREATE: to be created, DEPENDENCY: dependency file, OTHER: other)', description: 'file description', lineStart: 1, lineEnd: 100}], verificationCriteria: 'Verification criteria and inspection methods for this specific task'}, {name: 'Task 2', description: 'Task 2 description', implementationGuide: 'Task 2 implementation method', notes: 'Supplementary notes, special handling requirements or implementation suggestions (optional)', dependencies: ['Task 1'], relatedFiles: [{path: 'file path', type: 'file type (TO_MODIFY: to be modified, REFERENCE: reference material, CREATE: to be created, DEPENDENCY: dependency file, OTHER: other)', description: 'file description', lineStart: 1, lineEnd: 100}], verificationCriteria: 'Verification criteria and inspection methods for this specific task'}]"
     ),
   globalAnalysisResult: z
     .string()
     .optional()
-    .describe("任務最終目標，來自之前分析適用於所有任務的通用部分"),
+    .describe("Task final objective, from previous analysis applicable to all tasks common parts"),
 });
 
 const tasksSchema = z
@@ -31,79 +31,79 @@ const tasksSchema = z
       name: z
         .string()
         .max(100, {
-          message: "任務名稱過長，請限制在100個字符以內",
+          message: "Task name is too long, please limit to within 100 characters",
         })
-        .describe("簡潔明確的任務名稱，應能清晰表達任務目的"),
+        .describe("Concise and clear task name, should clearly express task purpose"),
       description: z
         .string()
         .min(10, {
-          message: "任務描述過短，請提供更詳細的內容以確保理解",
+          message: "Task description is too short, please provide more detailed content to ensure understanding",
         })
-        .describe("詳細的任務描述，包含實施要點、技術細節和驗收標準"),
+        .describe("Detailed task description, including implementation points, technical details and acceptance criteria"),
       implementationGuide: z
         .string()
         .describe(
-          "此特定任務的具體實現方法和步驟，請參考之前的分析結果提供精簡pseudocode"
+          "Specific implementation methods and steps for this particular task, please refer to previous analysis results and provide concise pseudocode"
         ),
       dependencies: z
         .array(z.string())
         .optional()
         .describe(
-          "此任務依賴的前置任務ID或任務名稱列表，支持兩種引用方式，名稱引用更直觀，是一個字串陣列"
+          "List of prerequisite task IDs or task names that this task depends on, supports two reference methods, name reference is more intuitive, is a string array"
         ),
       notes: z
         .string()
         .optional()
-        .describe("補充說明、特殊處理要求或實施建議（選填）"),
+        .describe("Supplementary notes, special handling requirements or implementation suggestions (optional)"),
       relatedFiles: z
         .array(
           z.object({
             path: z
               .string()
               .min(1, {
-                message: "文件路徑不能為空",
+                message: "File path cannot be empty",
               })
-              .describe("文件路徑，可以是相對於項目根目錄的路徑或絕對路徑"),
+              .describe("File path, can be relative to project root directory or absolute path"),
             type: z
               .nativeEnum(RelatedFileType)
               .describe(
-                "文件類型 (TO_MODIFY: 待修改, REFERENCE: 參考資料, CREATE: 待建立, DEPENDENCY: 依賴文件, OTHER: 其他)"
+                "File type (TO_MODIFY: to be modified, REFERENCE: reference material, CREATE: to be created, DEPENDENCY: dependency file, OTHER: other)"
               ),
             description: z
               .string()
               .min(1, {
-                message: "文件描述不能為空",
+                message: "File description cannot be empty",
               })
-              .describe("文件描述，用於說明文件的用途和內容"),
+              .describe("File description, used to explain the purpose and content of the file"),
             lineStart: z
               .number()
               .int()
               .positive()
               .optional()
-              .describe("相關代碼區塊的起始行（選填）"),
+              .describe("Starting line of related code block (optional)"),
             lineEnd: z
               .number()
               .int()
               .positive()
               .optional()
-              .describe("相關代碼區塊的結束行（選填）"),
+              .describe("Ending line of related code block (optional)"),
           })
         )
         .optional()
         .describe(
-          "與任務相關的文件列表，用於記錄與任務相關的代碼文件、參考資料、要建立的文件等（選填）"
+          "List of files related to the task, used to record code files, reference materials, files to be created, etc. related to the task (optional)"
         ),
       verificationCriteria: z
         .string()
         .optional()
-        .describe("此特定任務的驗證標準和檢驗方法"),
+        .describe("Verification criteria and inspection methods for this specific task"),
     })
   )
   .min(1, {
-    message: "請至少提供一個任務",
+    message: "Please provide at least one task",
   })
   .describe(
-    "結構化的任務清單，每個任務應保持原子性且有明確的完成標準，避免過於簡單的任務，簡單修改可與其他任務整合，避免任務過多"
+    "Structured task list, each task should maintain atomicity and have clear completion criteria, avoid overly simple tasks, simple modifications can be integrated with other tasks, avoid too many tasks"
   );
 
 export async function splitTasksRaw({

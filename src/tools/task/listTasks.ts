@@ -6,10 +6,10 @@ import { getListTasksPrompt } from "../../prompts/index.js";
 export const listTasksSchema = z.object({
   status: z
     .enum(["all", "pending", "in_progress", "completed"])
-    .describe("要列出的任務狀態，可選擇 'all' 列出所有任務，或指定具體狀態"),
+    .describe("Status of tasks to list, can choose 'all' to list all tasks, or specify specific status"),
 });
 
-// 列出任務工具
+// List tasks tool
 export async function listTasks({ status }: z.infer<typeof listTasksSchema>) {
   const tasks = await getAllTasks();
   let filteredTasks = tasks;
