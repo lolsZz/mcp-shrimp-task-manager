@@ -1,14 +1,14 @@
-// 全局變量
+// Global variables
 let tasks = [];
 let selectedTaskId = null;
 let searchTerm = "";
 let sortOption = "date-asc";
-let globalAnalysisResult = null; // 新增：儲存全局分析結果
-let svg, g, simulation; // << 修改：定義 D3 相關變量
+let globalAnalysisResult = null; // Added: Store global analysis results
+let svg, g, simulation; // Modified: Define D3 related variables
 
-// 新增：i18n 全局變量
-let currentLang = "en"; // 預設語言
-let translations = {}; // 儲存加載的翻譯
+// Added: i18n global variables
+let currentLang = "en"; // Default language
+let translations = {}; // Store loaded translations
 
 // DOM元素
 const taskListElement = document.getElementById("task-list");
@@ -23,23 +23,23 @@ const progressLabels = document.getElementById("progress-labels");
 const dependencyGraphElement = document.getElementById("dependency-graph");
 const globalAnalysisResultElement = document.getElementById(
   "global-analysis-result"
-); // 假設 HTML 中有這個元素
-const langSwitcher = document.getElementById("lang-switcher"); // << 新增：獲取切換器元素
+); // Assuming this element exists in HTML
+const langSwitcher = document.getElementById("lang-switcher"); // Added: Get switcher element
 
-// 初始化
+// Initialization
 document.addEventListener("DOMContentLoaded", () => {
-  // fetchTasks(); // 將由 initI18n() 觸發
-  initI18n(); // << 新增：初始化 i18n
+  // fetchTasks(); // Will be triggered by initI18n()
+  initI18n(); // Added: Initialize i18n
   updateCurrentTime();
   setInterval(updateCurrentTime, 1000);
 
-  // 事件監聽器
-  // statusFilter.addEventListener("change", renderTasks); // 將由 changeLanguage 觸發或在 applyTranslations 後觸發
+  // Event listeners
+  // statusFilter.addEventListener("change", renderTasks); // Will be triggered by changeLanguage or after applyTranslations
   if (statusFilter) {
     statusFilter.addEventListener("change", renderTasks);
   }
 
-  // 新增：搜索和排序事件監聽
+  // Added: Search and sort event listeners
   const searchInput = document.getElementById("search-input");
   const sortOptions = document.getElementById("sort-options");
 
@@ -57,10 +57,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 新增：設置 SSE 連接
+  // Added: Set up SSE connection
   setupSSE();
 
-  // 新增：語言切換器事件監聽
+  // Added: Language switcher event listener
   if (langSwitcher) {
     langSwitcher.addEventListener("change", (e) =>
       changeLanguage(e.target.value)
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// 新增：i18n 核心函數
+// Added: i18n core functions
 // 1. 語言檢測 (URL 參數 > navigator.language > 'en')
 function detectLanguage() {
   // 1. 優先從 URL 參數讀取
@@ -165,7 +165,7 @@ async function initI18n() {
   await fetchTasks();
 }
 
-// 新增：語言切換函數
+// Added: Language switching function
 function changeLanguage(lang) {
   if (!lang || !["en", "zh-TW"].includes(lang)) {
     console.warn(`Invalid language selected: ${lang}. Defaulting to English.`);
@@ -290,7 +290,7 @@ async function fetchTasks() {
   }
 }
 
-// 新增：設置 Server-Sent Events 連接
+// Added: Set up Server-Sent Events connection
 function setupSSE() {
   console.log("Setting up SSE connection to /api/tasks/stream");
   const evtSource = new EventSource("/api/tasks/stream");
@@ -452,7 +452,7 @@ function showTemporaryError(message) {
 
 // 渲染任務列表 - *** 需要進一步優化以實現智慧更新 ***
 function renderTasks() {
-  console.log("Rendering tasks..."); // 添加日誌
+  console.log("Rendering tasks..."); // Added logging
   const filterValue = statusFilter.value;
 
   let filteredTasks = tasks;

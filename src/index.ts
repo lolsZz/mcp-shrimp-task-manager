@@ -15,7 +15,7 @@ import fs from "fs";
 import fsPromises from "fs/promises";
 import { fileURLToPath } from "url";
 
-// 導入所有工具函數和 schema
+// Import all tool functions and schemas
 import {
   planTask,
   planTaskSchema,
@@ -93,7 +93,7 @@ async function main() {
           const tasksData = await fsPromises.readFile(TASKS_FILE_PATH, "utf-8");
           res.json(JSON.parse(tasksData));
         } catch (error) {
-          // 確保檔案不存在時返回空任務列表
+          // Ensure empty task list is returned when file doesn't exist
           if ((error as NodeJS.ErrnoException).code === "ENOENT") {
             res.json({ tasks: [] });
           } else {

@@ -1,51 +1,51 @@
 /**
- * MCP Shrimp Task Manager 網站主腳本
+ * MCP Shrimp Task Manager Website Main Script
  */
 
 // 頁面加載完成後執行
 document.addEventListener("DOMContentLoaded", function () {
-  // 初始化滾動動畫
+  // Initialize scroll animations
   initAOS();
 
-  // 初始化移動端菜單
+  // Initialize mobile menu
   initMobileMenu();
 
-  // 初始化代碼高亮和複製功能
+  // Initialize code highlighting and copy functionality
   initCodeBlocks();
 
-  // 平滑滾動功能
+  // Smooth scroll functionality
   initSmoothScroll();
 
-  // 英雄區特效
+  // Hero section effects
   initHeroEffects();
 
-  // 痛點與解決方案區特效
+  // Pain points and solutions section effects
   initPainPointsEffects();
 
-  // 核心功能展示區特效
+  // Core features section effects
   initFeaturesEffects();
 
-  // 工作流程展示區特效
+  // Workflow section effects
   initWorkflowEffects();
 
-  // 初始化安裝與配置區功能
+  // Initialize installation and configuration section functionality
   initInstallationSection();
 
-  // 檢測頁面滾動位置以顯示回到頂部按鈕
+  // Detect page scroll position to show back-to-top button
   initScrollToTopButton();
 
-  // 初始化響應式圖片懶加載
+  // Initialize responsive image lazy loading
   initLazyLoading();
 
-  // 初始化頁面進入動畫
+  // Initialize page entrance animation
   initPageEntranceAnimation();
 
-  // 多語系功能
+  // Multi-language functionality
   initMultiLanguage();
 });
 
 /**
- * 初始化AOS滾動動畫庫
+ * Initialize AOS scroll animation library
  */
 function initAOS() {
   AOS.init({
@@ -54,19 +54,19 @@ function initAOS() {
     once: true,
     mirror: true,
     disable: function () {
-      // 只在低性能設備上禁用動畫，根據用戶偏好設置
+      // Only disable animations on low-performance devices, based on user preference settings
       return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     },
   });
 
-  // 在窗口調整大小時重新初始化AOS以確保正確的觸發位置
+  // Reinitialize AOS on window resize to ensure correct trigger positions
   window.addEventListener("resize", function () {
     AOS.refresh();
   });
 }
 
 /**
- * 初始化移動端菜單
+ * Initialize mobile menu
  */
 function initMobileMenu() {
   const menuToggle = document.getElementById("menu-toggle");
@@ -76,7 +76,7 @@ function initMobileMenu() {
     menuToggle.addEventListener("click", function (e) {
       e.preventDefault();
 
-      // 為了支持過渡效果，先移除hidden類
+      // Remove hidden class first to support transition effects
       if (mobileMenu.classList.contains("hidden")) {
         mobileMenu.classList.remove("hidden");
 
@@ -126,7 +126,7 @@ function initMobileMenu() {
 }
 
 /**
- * 英雄區特效初始化
+ * Hero section effects initialization
  */
 function initHeroEffects() {
   // 獲取英雄區
@@ -220,7 +220,7 @@ function initHeroEffects() {
 }
 
 /**
- * 痛點與解決方案區特效初始化
+ * Pain points and solutions section effects initialization
  */
 function initPainPointsEffects() {
   const painPointsSection = document.getElementById("pain-points");
@@ -315,7 +315,7 @@ function initPainPointsEffects() {
 }
 
 /**
- * 初始化代碼區塊功能
+ * Initialize code block functionality
  */
 function initCodeBlocks() {
   // 確保 Prism.js 已加載
