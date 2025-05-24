@@ -55,16 +55,16 @@ async function main() {
     const ENABLE_GUI = process.env.ENABLE_GUI === "true";
 
     if (ENABLE_GUI) {
-      // 創建 Express 應用
+      // Create Express application
       const app = express();
 
-      // 儲存 SSE 客戶端的列表
+      // Store list of SSE clients
       let sseClients: Response[] = [];
 
-      // 發送 SSE 事件的輔助函數
+      // Helper function to send SSE events
       function sendSseUpdate() {
         sseClients.forEach((client) => {
-          // 檢查客戶端是否仍然連接
+          // Check if client is still connected
           if (!client.writableEnded) {
             client.write(
               `event: update\ndata: ${JSON.stringify({
@@ -73,23 +73,23 @@ async function main() {
             );
           }
         });
-        // 清理已斷開的客戶端 (可選，但建議)
+        // Clean up disconnected clients (optional, but recommended)
         sseClients = sseClients.filter((client) => !client.writableEnded);
       }
 
-      // 設置靜態文件目錄
+      // Set up static files directory
       const __filename = fileURLToPath(import.meta.url);
       const __dirname = path.dirname(__filename);
       const publicPath = path.join(__dirname, "public");
       const DATA_DIR = process.env.DATA_DIR || path.join(__dirname, "data");
-      const TASKS_FILE_PATH = path.join(DATA_DIR, "tasks.json"); // 提取檔案路徑
+      const TASKS_FILE_PATH = path.join(DATA_DIR, "tasks.json"); // Extract file path
 
       app.use(express.static(publicPath));
 
-      // 設置 API 路由
+      // Set up API routes
       app.get("/api/tasks", async (req: Request, res: Response) => {
         try {
-          // 使用 fsPromises 保持異步讀取
+          // Use fsPromises to maintain async reading
           const tasksData = await fsPromises.readFile(TASKS_FILE_PATH, "utf-8");
           res.json(JSON.parse(tasksData));
         } catch (error) {
@@ -102,17 +102,17 @@ async function main() {
         }
       });
 
-      // 新增：SSE 端點
+      // Add: SSE endpoint
       app.get("/api/tasks/stream", (req: Request, res: Response) => {
         res.writeHead(200, {
           "Content-Type": "text/event-stream",
           "Cache-Control": "no-cache",
           Connection: "keep-alive",
-          // 可選: CORS 頭，如果前端和後端不在同一個 origin
+          // Optional: CORS headers, if frontend and backend are not on the same origin
           // "Access-Control-Allow-Origin": "*",
         });
 
-        // 發送一個初始事件或保持連接
+        // Send an initial event or keep connection
         res.write("data: connected\n\n");
 
         // 將客戶端添加到列表

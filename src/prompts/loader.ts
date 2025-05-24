@@ -1,6 +1,6 @@
 /**
- * prompt 載入器
- * 提供從環境變數載入自定義 prompt 的功能
+ * Prompt loader
+ * Provides functionality to load custom prompts from environment variables
  */
 
 import fs from "fs";
@@ -20,10 +20,10 @@ function processEnvString(input: string | undefined): string {
 }
 
 /**
- * 載入 prompt，支援環境變數自定義
- * @param basePrompt 基本 prompt 內容
- * @param promptKey prompt 的鍵名，用於生成環境變數名稱
- * @returns 最終的 prompt 內容
+ * Load prompt, supports environment variable customization
+ * @param basePrompt Base prompt content
+ * @param promptKey Prompt key name, used to generate environment variable name
+ * @returns Final prompt content
  */
 export function loadPrompt(basePrompt: string, promptKey: string): string {
   // 轉換為大寫，作為環境變數的一部分
